@@ -1,2 +1,0 @@
-# epoll
-Rust epoll wrapper
