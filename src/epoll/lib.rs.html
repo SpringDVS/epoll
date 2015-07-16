@@ -220,15 +220,15 @@
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>, <span class='ident'>packed</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>EpollEvent</span> {
-    <span class='ident'>events</span>: <span class='ident'>u32</span>,
-    <span class='ident'>data</span>: <span class='ident'>u64</span>
+    <span class='kw'>pub</span> <span class='ident'>events</span>: <span class='ident'>u32</span>,
+    <span class='kw'>pub</span> <span class='ident'>data</span>: <span class='ident'>u64</span>
 }
 
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>not</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>))]</span>
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>EpollEvent</span> {
-    <span class='ident'>events</span>: <span class='ident'>u32</span>,
-    <span class='ident'>data</span>: <span class='ident'>u64</span>
+    <span class='kw'>pub</span> <span class='ident'>events</span>: <span class='ident'>u32</span>,
+    <span class='kw'>pub</span> <span class='ident'>data</span>: <span class='ident'>u64</span>
 }
 
 <span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
