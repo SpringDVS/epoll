@@ -204,7 +204,7 @@
 <span class='kw'>use</span> <span class='ident'>libc</span>::<span class='ident'>consts</span>::<span class='ident'>os</span>::<span class='ident'>posix88</span>;
 
 <span class='kw'>use</span> <span class='ident'>util</span>::<span class='op'>*</span>;
-<span class='kw'>mod</span> <span class='ident'>util</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>util</span>;
 
 
 <span class='doccomment'>/// Represents the result of calling epoll_create1</span>
@@ -263,7 +263,7 @@
 
 <span class='doccomment'>/// Calls epoll_ctl(2) with supplied params</span>
 <span class='attribute'>#[<span class='ident'>inline</span>]</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ctl</span>(<span class='ident'>epoll_fd</span>: <span class='ident'>RawFd</span>, <span class='ident'>op</span>: <span class='ident'>CtlOp</span>,
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ctl</span>(<span class='ident'>epoll_fd</span>: <span class='ident'>RawFd</span>, <span class='ident'>op</span>: <span class='ident'>u32</span>,
            <span class='ident'>socket_fd</span>: <span class='ident'>RawFd</span>, <span class='ident'>event</span>: <span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>EpollEvent</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='ident'>CtlResult</span> {
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>x</span>;
     <span class='kw'>unsafe</span> {

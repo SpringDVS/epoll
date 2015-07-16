@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `epoll` crate.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, epoll">
+    <meta name="description" content="API documentation for the Rust `util` mod in crate `epoll`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, util">
 
-    <title>epoll - Rust</title>
+    <title>epoll::util - Rust</title>
 
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
     
@@ -26,7 +26,7 @@
 
     <section class="sidebar">
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'epoll', ty: 'mod', relpath: '../'};</script>
+        <p class='location'><a href='../index.html'>epoll</a></p><script>window.sidebarCurrent = {name: 'util', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </section>
 
     <nav class="sub">
@@ -41,83 +41,51 @@
     </nav>
 
     <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>epoll</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>epoll</a>::<wbr><a class='mod' href=''>util</a></span><span class='out-of-band'><span id='render-detail'>
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/epoll/lib.rs.html#15-137' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-12' class='srclink' href='../../src/epoll/util.rs.html#15-144' title='goto source code'>[src]</a></span></h1>
 <h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                     <tr class=' module-item'>
-                        <td><a class='mod' href='util/index.html'
-                               title='epoll::util'>util</a></td>
+                        <td><a class='mod' href='ctl_op/index.html'
+                               title='epoll::util::ctl_op'>ctl_op</a></td>
                         <td class='docblock short'>
                              
                         </td>
                     </tr>
-                </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
+                
                     <tr class=' module-item'>
-                        <td><a class='struct' href='struct.EpollEvent.html'
-                               title='epoll::EpollEvent'>EpollEvent</a></td>
+                        <td><a class='mod' href='event_type/index.html'
+                               title='epoll::util::event_type'>event_type</a></td>
                         <td class='docblock short'>
                              
                         </td>
                     </tr>
-                </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                     <tr class=' module-item'>
-                        <td><a class='fn' href='fn.create1.html'
-                               title='epoll::create1'>create1</a></td>
+                        <td><a class='enum' href='enum.CreateError.html'
+                               title='epoll::util::CreateError'>CreateError</a></td>
                         <td class='docblock short'>
-                             <p>Attempts to create a new epoll instance</p>
-
+                             
                         </td>
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='fn' href='fn.ctl.html'
-                               title='epoll::ctl'>ctl</a></td>
+                        <td><a class='enum' href='enum.CtlError.html'
+                               title='epoll::util::CtlError'>CtlError</a></td>
                         <td class='docblock short'>
-                             <p>Calls epoll_ctl(2) with supplied params</p>
-
+                             
                         </td>
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='fn' href='fn.wait.html'
-                               title='epoll::wait'>wait</a></td>
+                        <td><a class='enum' href='enum.WaitError.html'
+                               title='epoll::util::WaitError'>WaitError</a></td>
                         <td class='docblock short'>
-                             <p>Calls epoll_wait(1) with supplied params</p>
-
-                        </td>
-                    </tr>
-                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
-<table>
-                    <tr class=' module-item'>
-                        <td><a class='type' href='type.CreateResult.html'
-                               title='epoll::CreateResult'>CreateResult</a></td>
-                        <td class='docblock short'>
-                             <p>Represents the result of calling epoll_create1</p>
-
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='type' href='type.CtlResult.html'
-                               title='epoll::CtlResult'>CtlResult</a></td>
-                        <td class='docblock short'>
-                             <p>Represents the result of calling epoll_ctrl</p>
-
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='type' href='type.WaitResult.html'
-                               title='epoll::WaitResult'>WaitResult</a></td>
-                        <td class='docblock short'>
-                             <p>Represents the result of calling epoll_wait</p>
-
+                             
                         </td>
                     </tr>
                 </table></section>
@@ -163,13 +131,13 @@
     
 
     <script>
-        window.rootPath = "../";
+        window.rootPath = "../../";
         window.currentCrate = "epoll";
         window.playgroundUrl = "";
     </script>
-    <script src="../jquery.js"></script>
-    <script src="../main.js"></script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
     
-    <script async src="../search-index.js"></script>
+    <script async src="../../search-index.js"></script>
 </body>
 </html>
