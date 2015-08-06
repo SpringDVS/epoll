@@ -173,10 +173,6 @@
 <span id="131">131</span>
 <span id="132">132</span>
 <span id="133">133</span>
-<span id="134">134</span>
-<span id="135">135</span>
-<span id="136">136</span>
-<span id="137">137</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -186,10 +182,6 @@
 <span class='comment'>// distributed with this file, You can</span>
 <span class='comment'>// obtain one at</span>
 <span class='comment'>// http://mozilla.org/MPL/2.0/.</span>
-<span class='comment'>//</span>
-<span class='comment'>// This Source Code Form is &quot;Incompatible</span>
-<span class='comment'>// With Secondary Licenses&quot;, as defined by</span>
-<span class='comment'>// the Mozilla Public License, v. 2.0.</span>
 
 
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libc</span>;
@@ -234,7 +226,7 @@
 <span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
     <span class='kw'>fn</span> <span class='ident'>epoll_create1</span>(<span class='ident'>flags</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>fn</span> <span class='ident'>epoll_ctl</span>(<span class='ident'>epfd</span>: <span class='ident'>c_int</span>, <span class='ident'>op</span>: <span class='ident'>c_int</span>, <span class='ident'>fd</span>: <span class='ident'>c_int</span>,
-        <span class='ident'>event</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>EpollEvent</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+        <span class='ident'>event</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>EpollEvent</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>fn</span> <span class='ident'>epoll_wait</span>(<span class='ident'>epfd</span>: <span class='ident'>c_int</span>, <span class='ident'>event</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>EpollEvent</span>,
         <span class='ident'>maxevents</span>: <span class='ident'>c_int</span>, <span class='ident'>timeout</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
 }
@@ -264,13 +256,13 @@
 <span class='doccomment'>/// Calls epoll_ctl(2) with supplied params</span>
 <span class='attribute'>#[<span class='ident'>inline</span>]</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ctl</span>(<span class='ident'>epoll_fd</span>: <span class='ident'>RawFd</span>, <span class='ident'>op</span>: <span class='ident'>u32</span>,
-           <span class='ident'>socket_fd</span>: <span class='ident'>RawFd</span>, <span class='ident'>event</span>: <span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>EpollEvent</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='ident'>CtlResult</span> {
+           <span class='ident'>socket_fd</span>: <span class='ident'>RawFd</span>, <span class='ident'>event</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>EpollEvent</span>) <span class='op'>-&gt;</span> <span class='ident'>CtlResult</span> {
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>x</span>;
     <span class='kw'>unsafe</span> {
         <span class='ident'>x</span> <span class='op'>=</span> <span class='ident'>epoll_ctl</span>(<span class='ident'>epoll_fd</span> <span class='kw'>as</span> <span class='ident'>c_int</span>,
             <span class='ident'>op</span> <span class='kw'>as</span> <span class='ident'>c_int</span>,
             <span class='ident'>socket_fd</span> <span class='kw'>as</span> <span class='ident'>c_int</span>,
-            <span class='kw-2'>&amp;</span><span class='op'>*</span><span class='ident'>event</span>);
+            <span class='ident'>event</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>EpollEvent</span>);
     }
 
     <span class='kw'>if</span> <span class='ident'>x</span> <span class='op'>==</span> <span class='op'>-</span><span class='number'>1</span> {
